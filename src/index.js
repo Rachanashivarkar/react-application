@@ -1,17 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-
+import "./index.css";
+import Home from './home'
+import About from "./about"
+import Cont from "./contact"
+import Sea from "./search"
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const cpath=window.location.pathname;
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+if(cpath=="/")
+{
+  root.render(<Home />);
+}
+else if(cpath=="/about")
+  {
+    root.render(<About />);
+  }
+  
+else if(cpath=="/contact")
+{
+  root.render(<Cont />);
+}
+else if(cpath=="/search")
+  {
+    root.render(<Sea />);
+  }
+else{
+  root.render(<>
+  <h1>404 ERROR</h1>
+  </> )
+}
